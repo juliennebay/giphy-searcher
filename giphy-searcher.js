@@ -9,10 +9,6 @@ function loadScript(){
         //clear old results, if any
         Array.from(ul.children).forEach(child => child.remove());
 
-        const li = document.createElement("li")
-        li.textContent = "🚧site currently under  construction. check back l8r 🚧"
-        ul.appendChild(li)
-
         const queryUrl = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${input.value}&limit=2`
 
         fetch(queryUrl).then(response => response.json())
@@ -20,7 +16,10 @@ function loadScript(){
                            const gifs = result.data //data is an array
                            gifs.forEach(gif => {
                             const li = document.createElement("li")
-                            li.textContent = "gif slug :" + gif.slug
+                            const img = document.createElement("img")
+                            img.src = gif.images.downsized_medium.url
+                            li.appendChild(img)
+                         //   li.textContent = "gif slug :" + gif.slug
                             ul.appendChild(li)
                            })
                        })
