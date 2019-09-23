@@ -11,7 +11,7 @@ function loadScript(){
         //clear old results, if any
         Array.from(ul.children).forEach(child => child.remove());
 
-        const queryUrl = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${input.value}&limit=2`
+        const queryUrl = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${input.value}&limit=3`
 
         loading.hidden = false
         button.disabled = true
